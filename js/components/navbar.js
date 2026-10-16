@@ -7,7 +7,7 @@
         ['Biography', new URL('about.html', root).href],
         ['Experience', home + '#experience'],
         ['Dashboard', home + '#projects'],
-        ['Ruang Karya', new URL('ruang-karya.html', root).href],
+        ['Karya Tulis', home + '#writing'],
         ['Kontak', home + '#contact'],
     ];
     const header = document.createElement('header');
