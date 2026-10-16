@@ -2,6 +2,9 @@
     color-scheme: dark;
     --page: #050505;
     --ink: #f1f1ef;
+    /* Ukuran nama: clamp(ukuran minimum, mengikuti lebar layar, maksimum). */
+    --hero-title-size: clamp(1.5rem, 7.8vw, 12rem);
+    --hero-subtitle-size: clamp(2rem, 11.4vw, 17.5rem);
 }
 
 * {
@@ -68,17 +71,34 @@ body {
 .hero__name {
     position: absolute;
     z-index: -1;
-    top: 50%;
+    top: 53%;
     left: 50%;
-    width: max-content;
+    width: 81vw;
+    height: var(--hero-name-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 0;
     color: var(--ink);
-    font-size: clamp(4rem, 13.5vw, 12.5rem);
+    font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 800;
-    letter-spacing: -0.105em;
-    line-height: 0.76;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    white-space: nowrap;
     text-align: center;
-    transform: translate(-50%, -52%);
+    transform: translate(-50%, -50%);
+}
+
+#hero-title {
+    margin: 0;
+    font-size: var(--hero-title-size);
+    font-weight: inherit;
+}
+
+#hero-subtitle {
+    margin: 0;
+    font-size: var(--hero-subtitle-size);
+    font-weight: inherit;
 }
 
 .hero__portrait {
@@ -138,10 +158,6 @@ body {
     .hero {
         min-height: 100svh;
         padding-inline: 1rem;
-    }
-
-    .hero__name {
-        font-size: clamp(3.5rem, 16vw, 6rem);
     }
 
     .hero__portrait {
