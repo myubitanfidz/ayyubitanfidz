@@ -101,13 +101,32 @@ body {
     font-weight: inherit;
 }
 
+/* Edit label kecil di bawah nama melalui pengaturan berikut. */
+.hero__portfolio-label {
+    margin: 8px 0 0; /* Jarak dari TANFIDZ ULYA. */
+    font-size: clamp(12px, 1.2vw, 18px); /* Ukuran tulisan. */
+    font-weight: 500;
+    letter-spacing: 0.9em; /* Tambahan jarak antarhuruf. */
+    line-height: 1.5;
+    color: #dcdcdc;
+}
+
+.hero__portfolio-label::after {
+    content: "";
+    display: block;
+    width: 144px; /* Panjang garis. */
+    height: 1px; /* Ketebalan garis. */
+    margin: 6px auto 0; /* Jarak dari tulisan; auto menjaga garis di tengah. */
+    background-color: rgb(255 255 255 / 65%); /* Warna dan opacity garis. */
+}
+
 /* Satu bidang hitam lembut untuk kedua baris nama. */
 .hero__name::before {
     content: "";
     position: absolute;
     z-index: -1;
     inset: -24px -32px;
-    background: rgb(0 0 0 / 45%);
+    background: rgb(0 0 0 / 65%);
     filter: blur(50px);
     border-radius: 24px;
     pointer-events: none;
