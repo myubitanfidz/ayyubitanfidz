@@ -341,6 +341,97 @@ body {
     padding: 100px 24px;
 }
 
+.experience {
+    padding: 80px clamp(24px, 7vw, 112px) 120px;
+    border-top: 1px solid rgb(255 255 255 / 8%);
+}
+
+.experience__inner {
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.experience__title {
+    margin: 0 0 32px;
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.experience__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.experience__card {
+    padding: 28px;
+    background: #101010;
+    border: 1px solid rgb(255 255 255 / 12%);
+    border-radius: 16px;
+}
+
+.experience__card h3 {
+    margin: 0 0 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #b5b5b5;
+}
+
+.experience__number {
+    margin: 0;
+    font-size: clamp(52px, 6vw, 80px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.experience__note {
+    margin: 16px 0 0;
+    color: #b5b5b5;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.experience__languages {
+    margin: 0;
+}
+
+.experience__languages > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 16px;
+    padding-block: 10px;
+    border-bottom: 1px solid rgb(255 255 255 / 8%);
+    font-size: 14px;
+}
+
+.experience__languages > div:first-child {
+    padding-top: 0;
+}
+
+.experience__languages > div:last-child {
+    border-bottom: 0;
+}
+
+.experience__languages dd {
+    margin: 0;
+    color: #b5b5b5;
+}
+
+.experience__placeholder {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@media (max-width: 760px) {
+    .experience__cards {
+        grid-template-columns: 1fr;
+    }
+}
+
 .story h2 {
     font-size: clamp(28px, 4vw, 48px);
 }

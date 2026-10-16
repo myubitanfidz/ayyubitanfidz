@@ -1,6 +1,6 @@
 // EDIT DI SINI: urutan kata dan waktu (1000 ms = 1 detik).
 const typewriterSettings = {
-    words: ['Programmer', 'Sastrawan', 'Filsuf', 'Pelukis', 'Photographer','Hafiz', 'Penyair', 'Penulis', 'Penyanyi', 'Musisi', 'Pemain Musik', 'Pemain Gitar', 'Pemain Piano', 'Pemain Drum', 'Pemain Biola', 'Pemain Saxophone', 'Pemain Bass', 'Pemain Keyboard', 'Pemain Terompet', 'Pemain Klarinet', 'Pemain Flute'],
+    words: ['Programmer', 'Sastrawan', 'Filsuf', 'Pelukis', 'Photographer','Hafiz'],
     typingDelay: 100,   // Jeda mengetik satu huruf; lebih kecil = lebih cepat.
     deletingDelay: 60,  // Jeda menghapus satu huruf.
     holdDelay: 3200,    // Lama menampilkan kata yang sudah lengkap.
