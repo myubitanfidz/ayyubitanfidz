@@ -44,3 +44,57 @@ function restartTypewriter() {
 
 typingMotion.addEventListener('change', restartTypewriter);
 restartTypewriter();
+
+// EDIT SAPAAN BIOGRAFI DI SINI. Waktu dalam milidetik.
+const greetingSettings = {
+    phrases: [
+        { text: "Hello, I'm", lang: 'en' },
+        { text: 'Halo, saya', lang: 'id' },
+        { text: 'Bonjour, je suis', lang: 'fr' },
+        { text: '你好，我是', lang: 'zh-CN' },
+    ],
+    typingDelay: 110,
+    deletingDelay: 65,
+    holdDelay: 2400,
+    nextWordDelay: 350,
+};
+
+const greetingText = document.querySelector('#biography-greeting');
+let greetingIndex = 0;
+let greetingLetters = [];
+let greetingLength = 0;
+let greetingDeleting = true;
+let greetingTimer;
+
+function typeGreeting() {
+    greetingLength += greetingDeleting ? -1 : 1;
+    greetingText.textContent = greetingLetters.slice(0, greetingLength).join('');
+    let delay = greetingDeleting ? greetingSettings.deletingDelay : greetingSettings.typingDelay;
+    if (greetingDeleting && greetingLength === 0) {
+        greetingIndex = (greetingIndex + 1) % greetingSettings.phrases.length;
+        const phrase = greetingSettings.phrases[greetingIndex];
+        greetingLetters = Array.from(phrase.text);
+        greetingText.lang = phrase.lang;
+        greetingDeleting = false;
+        delay = greetingSettings.nextWordDelay;
+    } else if (!greetingDeleting && greetingLength === greetingLetters.length) {
+        greetingDeleting = true;
+        delay = greetingSettings.holdDelay;
+    }
+    greetingTimer = setTimeout(typeGreeting, delay);
+}
+
+function restartGreeting() {
+    clearTimeout(greetingTimer);
+    greetingIndex = 0;
+    const phrase = greetingSettings.phrases[0];
+    greetingLetters = Array.from(phrase.text);
+    greetingLength = greetingLetters.length;
+    greetingDeleting = true;
+    greetingText.textContent = phrase.text;
+    greetingText.lang = phrase.lang;
+    if (!typingMotion.matches) greetingTimer = setTimeout(typeGreeting, greetingSettings.holdDelay);
+}
+
+typingMotion.addEventListener('change', restartGreeting);
+restartGreeting();

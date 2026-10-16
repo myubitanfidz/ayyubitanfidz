@@ -234,6 +234,18 @@ body {
     margin: 0 0 16px;
     font-size: clamp(18px, 2vw, 26px);
     color: #b5b5b5;
+    min-height: 1.5em; /* Menjaga posisi nama saat sapaan sedang dihapus. */
+    line-height: 1.5;
+}
+
+#biography-greeting::after {
+    content: "";
+    display: inline-block;
+    height: 1em;
+    margin-left: 4px;
+    border-right: 1px solid currentColor;
+    vertical-align: -0.1em;
+    animation: cursor-blink 0.8s step-end infinite;
 }
 
 #biography-name {
