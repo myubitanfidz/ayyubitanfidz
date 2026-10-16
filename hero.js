@@ -13,7 +13,7 @@ function layout() {
     width = wall.clientWidth;
     // Jarak antarfoto sekitar 8px pada bagian tengah lengkungan.
     const fontSize = parseFloat(getComputedStyle(wall).fontSize);
-    cardWidth = Math.max(9 * fontSize, Math.min(innerWidth * 0.16, 14.5 * fontSize));
+    cardWidth = Math.max(10 * fontSize, Math.min(innerWidth * 0.18, 16 * fontSize));
     const count = Math.max(6, Math.floor(arc * width * 0.78 / (cardWidth + 8)));
     cards = rows.map((row, rowIndex) => {
     const track = row.querySelector('.photo-track');
