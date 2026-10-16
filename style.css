@@ -513,6 +513,34 @@ body {
     .projects__grid { grid-template-columns: 1fr; }
 }
 
+.writing {
+    padding: 80px clamp(24px, 7vw, 112px) 120px;
+    border-top: 1px solid rgb(255 255 255 / 8%);
+}
+
+.writing__inner { max-width: 1200px; margin-inline: auto; }
+.writing__title { margin: 0 0 32px; font-size: clamp(30px, 4vw, 48px); font-weight: 800; letter-spacing: -0.04em; }
+.writing__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.writing__more { display: flex; align-items: center; justify-content: center; gap: 16px; width: fit-content; margin: 40px auto 0; padding: 12px 0; color: #ddd; font-size: 14px; text-decoration: none; }
+.writing__more::before,
+.writing__more::after { content: ""; width: 48px; height: 1px; background: #777; }
+.writing__more:hover { color: #fff; text-decoration: underline; text-underline-offset: 5px; }
+.writing__more:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
+.writing-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid #303030; border-radius: 16px; background: #101010; overflow: hidden; }
+.writing-card__image { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.writing-card__body { display: flex; flex-direction: column; flex: 1; padding: clamp(20px, 3vw, 32px); }
+.writing-card h3 { margin: 0 0 16px; font-size: clamp(22px, 2vw, 28px); line-height: 1.35; overflow-wrap: anywhere; }
+.writing-card p { margin: 0 0 28px; color: #b5b5b5; font-size: 16px; line-height: 1.8; }
+.writing-card__link { align-self: flex-start; margin-top: auto; color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; padding-block: 10px; }
+.writing-card__link span[aria-hidden] { display: inline-block; margin-left: 8px; transition: transform 0.2s ease; }
+.writing-card__link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.writing-card__link:hover span[aria-hidden] { transform: translateX(4px); }
+.writing-card__link:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
+
+@media (max-width: 760px) {
+    .writing__grid { grid-template-columns: 1fr; }
+}
+
 .story h2 {
     font-size: clamp(28px, 4vw, 48px);
 }

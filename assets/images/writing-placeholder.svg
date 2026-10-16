@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#161616"/>
+  <path d="M330 170h300M330 220h240M330 270h300M330 320h180" stroke="#555" stroke-width="4" stroke-linecap="round"/>
+  <text x="480" y="410" text-anchor="middle" fill="#aaa" font-family="Arial, sans-serif" font-size="24">Sampul karya tulis</text>
+</svg>
