@@ -167,6 +167,10 @@ body {
 }
 
 @media (max-width: 640px) {
+    .hero__photo-wall {
+        mask-image: none;
+    }
+
     .hero {
         min-height: 100svh;
         padding-inline: 1rem;

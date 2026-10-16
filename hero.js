@@ -1,6 +1,7 @@
 // Setiap foto mengikuti lintasan elips, bukan menggeser seluruh baris datar.
 const wall = document.querySelector('.hero__photo-wall');
-const rows = [...wall.querySelectorAll('.photo-row')];
+const baseRows = [...wall.querySelectorAll('.photo-row')];
+let rows = [...baseRows];
 const sources = [...new Set([...wall.querySelectorAll('img')].map(img => img.src))];
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 // Kecepatan baris 1–7; angka lebih besar berarti bergerak lebih cepat.
@@ -12,6 +13,8 @@ let cardWidth;
 let cards = [];
 let curve = [];
 let curveLength = 0;
+let mobile = false;
+let rowSpacing;
 
 // Tabel panjang lintasan: jarak yang sama di permukaan elips
 // membutuhkan perubahan sudut yang berbeda di tengah dan tepi.
@@ -47,11 +50,30 @@ function angleAtDistance(distance) {
 
 function layout() {
     width = wall.clientWidth;
+    mobile = window.matchMedia('(max-width: 640px)').matches;
     // Sisakan ruang di sepanjang permukaan, termasuk saat foto berotasi.
     const fontSize = parseFloat(getComputedStyle(wall).fontSize);
     cardWidth = Math.max(10 * fontSize, Math.min(innerWidth * 0.18, 16 * fontSize));
+    rowSpacing = cardWidth * 9 / 16 + (mobile ? 6 : 10);
+    // Perspektif mengecilkan tinggi di tengah menjadi 1100 / 1340.
+    // Baris tambahan di luar layar menutup tepi atas dan bawah.
+    const rowCount = mobile
+        ? Math.max(baseRows.length, Math.ceil(wall.clientHeight * (1340 / 1100) / rowSpacing) + 2)
+        : baseRows.length;
+    while (rows.length > rowCount) rows.pop().remove();
+    while (rows.length < rowCount) {
+        const row = document.createElement('div');
+        row.className = 'photo-row';
+        const track = document.createElement('div');
+        track.className = 'photo-track';
+        row.append(track);
+        wall.append(row);
+        rows.push(row);
+    }
     buildCurve();
-    const count = Math.max(2, Math.floor(curveLength / (cardWidth + 18)));
+    const count = Math.max(2, mobile
+        ? Math.ceil(curveLength / (cardWidth + 10.8))
+        : Math.floor(curveLength / (cardWidth + 18)));
     cards = rows.map((row, rowIndex) => {
     const track = row.querySelector('.photo-track');
     row.replaceChildren(track);
@@ -80,12 +102,12 @@ function animate(time) {
 
     const radius = width * 0.78;
     const depth = Math.min(width * 0.32, 480);
-    const rowSpacing = cardWidth * 9 / 16 + 10;
 
     cards.forEach((images, rowIndex) => {
         const direction = rowIndex % 2 === 0 ? 1 : -1;
         // Baris genap dimulai setengah kartu dari baris ganjil (pola batu bata).
-        const spacing = curveLength / images.length;
+        const spacing = mobile ? cardWidth + 10.8 : curveLength / images.length;
+        const loopLength = mobile ? spacing * images.length : curveLength;
         const brickOffset = rowIndex % 2 * spacing / 2;
         const speed = rowSpeeds[rowIndex % rowSpeeds.length];
         const phase = elapsed * direction * width * speed + brickOffset;
@@ -93,8 +115,9 @@ function animate(time) {
 
         images.forEach((img, index) => {
             const position = index * spacing + phase;
-            const distance = ((position % curveLength) + curveLength) % curveLength;
-            const angle = angleAtDistance(distance);
+            const distance = ((position % loopLength) + loopLength) % loopLength;
+            img.style.visibility = distance > curveLength ? 'hidden' : 'visible';
+            const angle = angleAtDistance(Math.min(distance, curveLength));
             const x = radius * Math.sin(angle);
             const z = -240 + depth * (1 - Math.cos(angle));
             // Foto mengikuti arah permukaan elips di posisinya saat ini.
