@@ -4,11 +4,22 @@ const rows = [...wall.querySelectorAll('.photo-row')];
 const sources = [...new Set([...wall.querySelectorAll('img')].map(img => img.src))];
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-const cards = rows.map((row, rowIndex) => {
+const arc = Math.PI * 1.14;
+let width;
+let cardWidth;
+let cards = [];
+
+function layout() {
+    width = wall.clientWidth;
+    // Jarak antarfoto sekitar 8px pada bagian tengah lengkungan.
+    const fontSize = parseFloat(getComputedStyle(wall).fontSize);
+    cardWidth = Math.max(9 * fontSize, Math.min(innerWidth * 0.16, 14.5 * fontSize));
+    const count = Math.max(6, Math.floor(arc * width * 0.78 / (cardWidth + 8)));
+    cards = rows.map((row, rowIndex) => {
     const track = row.querySelector('.photo-track');
     row.replaceChildren(track);
-    // Satu rangkaian berisi foto berbeda; pergantian terjadi di luar layar.
-    const images = sources.map((_, index) => {
+    // Jumlah foto mengikuti lebar layar supaya rangkaian tetap rapat.
+    const images = Array.from({ length: count }, (_, index) => {
         const img = document.createElement('img');
         img.src = sources[(index + rowIndex * 3) % sources.length];
         img.alt = '';
@@ -17,14 +28,11 @@ const cards = rows.map((row, rowIndex) => {
     });
     track.replaceChildren(...images);
     return images;
-});
+    });
+}
 
-let width = wall.clientWidth;
-let height = wall.clientHeight;
-new ResizeObserver(() => {
-    width = wall.clientWidth;
-    height = wall.clientHeight;
-}).observe(wall);
+layout();
+new ResizeObserver(layout).observe(wall);
 
 let elapsed = 0;
 let previousTime;
@@ -35,12 +43,13 @@ function animate(time) {
 
     const radius = width * 0.78;
     const depth = Math.min(width * 0.32, 480);
-    const arc = Math.PI * 1.14;
-    const rowSpacing = height * 0.94 / rows.length;
+    const rowSpacing = cardWidth * 9 / 16 + 10;
 
     cards.forEach((images, rowIndex) => {
         const direction = rowIndex % 2 === 0 ? 1 : -1;
-        const phase = elapsed * direction * 0.045 + rowIndex * 0.19;
+        // Baris genap dimulai setengah kartu dari baris ganjil (pola batu bata).
+        const brickOffset = rowIndex % 2 * (arc / images.length / 2);
+        const phase = elapsed * direction * 0.045 + brickOffset;
         const y = (rowIndex - (rows.length - 1) / 2) * rowSpacing;
 
         images.forEach((img, index) => {
