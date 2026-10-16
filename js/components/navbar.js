@@ -7,7 +7,7 @@
         ['Biography', new URL('about.html', root).href],
         ['Experience', home + '#experience'],
         ['Dashboard', home + '#projects'],
-        ['Karya Tulis', home + '#writing'],
+        ['Ruang Karya', new URL('ruang-karya.html', root).href],
         ['Kontak', home + '#contact'],
         ['Guestbook', home + '#guestbook'],
     ];

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720">
+  <rect width="960" height="720" fill="#171717"/>
+  <path d="m100 540 220-200 145 140 160-230 235 290" fill="none" stroke="#444" stroke-width="3"/>
+  <circle cx="660" cy="180" r="45" fill="none" stroke="#555" stroke-width="3"/>
+  <text x="480" y="620" text-anchor="middle" fill="#999" font-family="Arial, sans-serif" font-size="24">Tempat untuk foto Anda</text>
+</svg>
