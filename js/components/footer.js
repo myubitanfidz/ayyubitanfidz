@@ -1,6 +1,6 @@
 // TEMPLATE FOOTER: edit nama, email, dan tautan di sini.
 (() => {
-    const root = new URL('../', document.currentScript.src);
+    const root = new URL('../../', document.currentScript.src);
     const footer = document.createElement('footer');
     footer.className = 'site-footer';
     footer.innerHTML = `
@@ -15,3 +15,4 @@
         <div class="site-footer__bottom">© ${new Date().getFullYear()} Muhammad Ayyubi Tanfidz Ulya.</div>`;
     document.body.append(footer);
 })();
+

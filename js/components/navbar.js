@@ -1,6 +1,6 @@
 // TEMPLATE NAVBAR: ubah label dan tujuan menu pada daftar ini.
 (() => {
-    const root = new URL('../', document.currentScript.src);
+    const root = new URL('../../', document.currentScript.src);
     const home = new URL('index.html', root).href;
     const links = [
         ['Beranda', home],
@@ -37,3 +37,4 @@
         if (event.key === 'Escape' && header.classList.contains('is-open')) { closeMenu(); toggle.focus(); }
     });
 })();
+

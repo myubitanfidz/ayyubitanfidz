@@ -1,15 +1,18 @@
-# Navbar dan footer bersama
+# Komponen navbar dan footer
 
-Edit `navbar.js` untuk nama situs dan daftar menu. Edit `footer.js` untuk teks, email, dan tautan footer. Gaya keduanya ada di `layout.css`.
+Lokasi template:
+- `js/components/navbar.js`: nama situs dan menu.
+- `js/components/footer.js`: teks dan tautan footer.
+- `css/components/layout.css`: gaya bersama.
 
 Untuk halaman di folder utama, tambahkan ke `<head>`:
 
 ```html
-<link rel="stylesheet" href="components/layout.css">
-<script src="components/navbar.js" defer></script>
-<script src="components/footer.js" defer></script>
+<link rel="stylesheet" href="css/components/layout.css">
+<script src="js/components/navbar.js" defer></script>
+<script src="js/components/footer.js" defer></script>
 ```
 
-Untuk halaman di folder seperti `tulisan`, gunakan `../components/` pada ketiga lokasi file. JavaScript menghitung tujuan navigasi dari lokasi komponen sehingga tautan beranda tetap benar.
-
-Komponen dimuat melalui JavaScript tanpa fetch, sehingga dapat digunakan saat HTML dibuka langsung atau melalui server lokal. JavaScript harus aktif.
+Untuk halaman di folder `tulisan`, awali ketiga lokasi dengan `../`.
+JavaScript menghitung tautan navigasi dari lokasi file komponen.
+Komponen dapat dipakai saat HTML dibuka langsung atau melalui server lokal; JavaScript harus aktif.
