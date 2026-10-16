@@ -1,7 +1,7 @@
 :root {
-    color-scheme: light;
-    --page: #f4f1eb;
-    --ink: #22211f;
+    color-scheme: dark;
+    --page: #050505;
+    --ink: #f1f1ef;
 }
 
 * {
@@ -29,66 +29,40 @@ body {
     padding: 6rem 1.5rem 5rem;
 }
 
+/* Kamera melihat sisi dalam tabung: pusat jauh, kedua tepi mendekat. */
 .hero__photo-wall {
     position: absolute;
     z-index: -2;
     inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: clamp(0.75rem, 1.6vh, 1.25rem);
     overflow: hidden;
-    opacity: 0.5;
-    mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+    pointer-events: none;
+    perspective: 1100px;
+    perspective-origin: 50% 50%;
+    mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
 }
 
-.photo-row {
-    display: flex;
-    width: max-content;
-    gap: clamp(0.75rem, 1.6vw, 1.25rem);
-}
-
+.photo-row,
 .photo-track {
-    display: flex;
-    flex: 0 0 auto;
-    gap: clamp(0.75rem, 1.6vw, 1.25rem);
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    pointer-events: none;
 }
 
 .photo-track img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: block;
-    width: clamp(9rem, 21vw, 18rem);
+    width: clamp(9rem, 16vw, 14.5rem);
     aspect-ratio: 16 / 9;
-    border-radius: 1.1rem;
     object-fit: cover;
-    filter: saturate(0.48);
-}
-
-.photo-row--right {
-    animation: move-right 48s linear infinite;
-}
-
-.photo-row--left {
-    animation: move-left 54s linear infinite;
-}
-
-.photo-row:nth-child(2) {
-    animation-delay: -3s;
-}
-
-.photo-row:nth-child(3) {
-    animation-delay: -6s;
-}
-
-.photo-row:nth-child(4) {
-    animation-delay: -9s;
-}
-
-.photo-row:nth-child(5) {
-    animation-delay: -12s;
-}
-
-.photo-row:nth-child(6) {
-    animation-delay: -15s;
+    border-radius: 0.65rem;
+    backface-visibility: hidden;
+    filter: saturate(0.55);
+    opacity: 0.48;
+    border: 1px solid rgb(235 235 240 / 18%);
+    box-shadow: 0 0 18px rgb(220 222 230 / 13%);
 }
 
 .hero__name {
@@ -116,7 +90,7 @@ body {
     height: min(68svh, 39rem);
     overflow: hidden;
     border-radius: 48% 48% 0.75rem 0.75rem;
-    box-shadow: 0 1.5rem 5rem rgb(34 33 31 / 18%);
+    box-shadow: 0 0 32px rgb(225 228 235 / 24%), 0 0 95px rgb(200 205 215 / 12%);
 }
 
 .hero__portrait img {
@@ -160,34 +134,10 @@ body {
     min-height: 50vh;
 }
 
-@keyframes move-right {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
-}
-
-@keyframes move-left {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
 @media (max-width: 640px) {
     .hero {
         min-height: 100svh;
         padding-inline: 1rem;
-    }
-
-    .hero__photo-wall {
-        gap: 1rem;
-    }
-
-    .photo-row,
-    .photo-track {
-        gap: 0.75rem;
-    }
-
-    .photo-track img {
-        width: 9rem;
-        border-radius: 0.8rem;
     }
 
     .hero__name {
@@ -216,4 +166,5 @@ body {
         animation-iteration-count: 1 !important;
     }
 }
+
 
