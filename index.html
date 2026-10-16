@@ -181,11 +181,70 @@
                 </div>
             </div>
         </section>
+        <section class="projects" id="projects" aria-labelledby="projects-title">
+            <div class="projects__inner">
+                <h2 class="projects__title" id="projects-title">Dashboard</h2>
+
+                <div class="github-stats" aria-labelledby="github-stats-title">
+                    <div class="github-stats__header">
+                        <h3 id="github-stats-title">Contributions</h3>
+                        <a href="https://github.com/myubitanfidz" target="_blank" rel="noopener noreferrer">@myubitanfidz ↗</a>
+                    </div>
+                    <p class="github-stats__status" id="github-status" role="status">Memuat statistik GitHub…</p>
+                    <div class="contribution-scroll" tabindex="0" role="region" aria-label="Kalender kontribusi, geser untuk melihat seluruh bulan">
+                        <div id="github-calendar" class="contribution-calendar" role="img" aria-label="Kalender kontribusi sedang dimuat"></div>
+                    </div>
+                    <div class="contribution-footer">
+                        <span id="github-total">Menunggu data kontribusi…</span>
+                        <div class="contribution-legend" aria-label="Semakin hijau, semakin banyak kontribusi">
+                            <span>Less</span>
+                            <i class="contribution-cell" data-level="0"></i><i class="contribution-cell" data-level="1"></i><i class="contribution-cell" data-level="2"></i><i class="contribution-cell" data-level="3"></i><i class="contribution-cell" data-level="4"></i>
+                            <span>More</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects__current" aria-labelledby="current-project-title">
+                    <h3 class="projects__subtitle" id="current-project-title">currently working in</h3>
+                    <!-- Ganti gambar dan nama dengan proyek yang sedang Anda kerjakan. -->
+                    <figure class="projects__featured">
+                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek yang sedang dikerjakan" width="960" height="540" loading="lazy" decoding="async">
+                        <figcaption>Nama proyek yang sedang dikerjakan</figcaption>
+                    </figure>
+                </div>
+
+                <h3 class="projects__subtitle">project</h3>
+                <!-- Satu article = satu proyek. Duplikasikan untuk menambah proyek. -->
+                <div class="projects__grid">                    <article class="project-card">
+                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 1" width="960" height="540" loading="lazy" decoding="async">
+                        <h4>Nama proyek 1</h4>
+                    </article>                    <article class="project-card">
+                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 2" width="960" height="540" loading="lazy" decoding="async">
+                        <h4>Nama proyek 2</h4>
+                    </article>                    <article class="project-card">
+                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 3" width="960" height="540" loading="lazy" decoding="async">
+                        <h4>Nama proyek 3</h4>
+                    </article>                    <article class="project-card">
+                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 4" width="960" height="540" loading="lazy" decoding="async">
+                        <h4>Nama proyek 4</h4>
+                    </article>                    <article class="project-card">
+                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 5" width="960" height="540" loading="lazy" decoding="async">
+                        <h4>Nama proyek 5</h4>
+                    </article>                    <article class="project-card">
+                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 6" width="960" height="540" loading="lazy" decoding="async">
+                        <h4>Nama proyek 6</h4>
+                    </article>                </div>
+            </div>
+        </section>
     </main>
     <script src="hero.js" defer></script>
     <script src="typewriter.js" defer></script>
+    <script src="github-stats.js" defer></script>
 </body>
 </html>
+
+
+
 
 
 
