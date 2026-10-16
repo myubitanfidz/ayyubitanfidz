@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perbandingan Font — Ayyubi Tanfidz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { color-scheme: dark; --bg: #080808; --panel: #121212; --ink: #eee; --muted: #a5a5a5; --border: #303030; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: clamp(20px, 4vw, 64px); background: var(--bg); color: var(--ink); font-family: system-ui, sans-serif; }
+        body.light { color-scheme: light; --bg: #f4f1eb; --panel: #fff; --ink: #222; --muted: #606060; --border: #d5d2ce; }
+        header, .controls, main { max-width: 1440px; margin-inline: auto; }
+        h1 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 48px); }
+        header p { color: var(--muted); line-height: 1.6; max-width: 760px; }
+        .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding-block: 24px; }
+        label { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 14px; }
+        button, select { background: var(--panel); color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font: inherit; }
+        input { accent-color: #b5c4ed; }
+        button { cursor: pointer; }
+        main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; --body-size: 18px; --weight: 400; }
+        article { min-width: 0; padding: clamp(20px, 3vw, 40px); border: 1px solid var(--border); border-radius: 16px; background: var(--panel); }
+        article h2 { margin: 0 0 32px; font: 600 16px system-ui, sans-serif; }
+        .sample { font-family: var(--font), sans-serif; }
+        .name { margin: 0 0 26px; font-size: clamp(32px, 4vw, 64px); font-weight: 700; line-height: 1.08; letter-spacing: -0.04em; overflow-wrap: anywhere; }
+        .heading { font-size: 28px; line-height: 1.3; font-weight: 600; margin: 0 0 16px; }
+        .paragraph, .characters { font-size: var(--body-size); font-weight: var(--weight); line-height: 1.7; }
+        .paragraph { min-height: 6em; }
+        .characters { color: var(--muted); overflow-wrap: anywhere; }
+        .stats { display: flex; flex-wrap: wrap; gap: 24px; padding-block: 20px; border-block: 1px solid var(--border); }
+        .stats strong { display: block; font-size: 32px; font-weight: 700; }
+        .stats span { font-size: 14px; color: var(--muted); }
+        .sample button { margin-top: 24px; font-family: inherit; font-weight: 600; }
+        [contenteditable] { border-radius: 4px; }
+        :focus-visible { outline: 2px solid #92a9e5; outline-offset: 5px; }
+        @media (max-width: 760px) { main { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Temukan font untuk portfolio Anda.</h1>
+        <p>Bandingkan empat font dengan teks dan ukuran yang sama. Klik nama atau paragraf pada kartu untuk mencoba teks sendiri. Font dimuat melalui Google Fonts dan memerlukan internet.</p>
+        <p>Catatan: “Comforta” pada README ditampilkan sebagai <strong>Comfortaa</strong>, nama keluarga font yang tersedia.</p>
+    </header>
+    <div class="controls" aria-label="Pengaturan perbandingan">
+        <label>Ukuran paragraf <input id="size" type="range" min="14" max="28" value="18"><output id="size-value" for="size">18 px</output></label>
+        <label>Ketebalan paragraf <select id="weight"><option value="400">400 — Regular</option><option value="500">500 — Medium</option><option value="600">600 — Semibold</option><option value="700">700 — Bold</option></select></label>
+        <button id="theme" type="button" aria-pressed="false">Latar terang</button>
+    </div>
+    <main id="comparison"></main>
+    <template id="font-card">
+        <article>
+            <h2></h2>
+            <div class="sample">
+                <p class="name" contenteditable="true" aria-label="Contoh nama yang dapat diedit">AYYUBI<br>TANFIDZ</p>
+                <p class="heading">Membangun ide menjadi karya.</p>
+                <p class="paragraph" contenteditable="true" aria-label="Contoh paragraf yang dapat diedit">Halo, saya Ayyubi Tanfidz. Saya senang mempelajari teknologi, merancang pengalaman digital, dan membagikan cerita di balik setiap proyek yang saya kerjakan.</p>
+                <div class="stats"><div><strong>12+</strong><span>Proyek selesai</span></div><div><strong>08</strong><span>Keahlian utama</span></div><div><strong>2026</strong><span>Terus berkarya</span></div></div>
+                <p class="characters">Aa Bb Cc Gg Qq Rr — Il1 O0<br>0123456789 · @ # &amp; ! ? ( )</p>
+                <button type="button">Lihat proyek ↗</button>
+            </div>
+        </article>
+    </template>
+    <script>
+        const comparison = document.querySelector('#comparison');
+        const fonts = ['Plus Jakarta Sans', 'Geist Mono', 'Public Sans', 'Comfortaa'];
+        fonts.forEach(font => {
+            const card = document.querySelector('#font-card').content.cloneNode(true);
+            card.querySelector('h2').textContent = font;
+            card.querySelector('article').style.setProperty('--font', '"' + font + '"');
+            comparison.append(card);
+        });
+        document.querySelector('#size').addEventListener('input', event => {
+            comparison.style.setProperty('--body-size', event.target.value + 'px');
+            document.querySelector('#size-value').textContent = event.target.value + ' px';
+        });
+        document.querySelector('#weight').addEventListener('change', event => comparison.style.setProperty('--weight', event.target.value));
+        document.querySelector('#theme').addEventListener('click', event => {
+            const light = document.body.classList.toggle('light');
+            event.target.textContent = light ? 'Latar gelap' : 'Latar terang';
+            event.target.setAttribute('aria-pressed', String(light));
+        });
+    </script>
+</body>
+</html>
