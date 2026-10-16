@@ -3,6 +3,8 @@ const wall = document.querySelector('.hero__photo-wall');
 const rows = [...wall.querySelectorAll('.photo-row')];
 const sources = [...new Set([...wall.querySelectorAll('img')].map(img => img.src))];
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+// Kecepatan baris 1–7; angka lebih besar berarti bergerak lebih cepat.
+const rowSpeeds = [0.024, 0.038, 0.029, 0.045, 0.032, 0.021, 0.041];
 
 const arc = Math.PI * 1.14;
 let width;
@@ -85,7 +87,8 @@ function animate(time) {
         // Baris genap dimulai setengah kartu dari baris ganjil (pola batu bata).
         const spacing = curveLength / images.length;
         const brickOffset = rowIndex % 2 * spacing / 2;
-        const phase = elapsed * direction * width * 0.035 + brickOffset;
+        const speed = rowSpeeds[rowIndex % rowSpeeds.length];
+        const phase = elapsed * direction * width * speed + brickOffset;
         const y = (rowIndex - (rows.length - 1) / 2) * rowSpacing;
 
         images.forEach((img, index) => {
