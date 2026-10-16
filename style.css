@@ -286,6 +286,71 @@ body {
     font-weight: 700;
 }
 
+.biography__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.biography__actions .biography__cv {
+    margin-top: 0;
+}
+
+.biography__more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 48px;
+    padding: 14px 22px;
+    border: 1px solid rgb(255 255 255 / 35%);
+    border-radius: 8px;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.biography__more:hover {
+    background: rgb(255 255 255 / 10%);
+}
+
+.biography__more:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 5px;
+}
+
+.hero__name--story {
+    height: auto;
+}
+
+.hero__name--story #hero-title {
+    font-size: clamp(48px, 13vw, 200px);
+}
+
+.story__back {
+    color: inherit;
+    text-decoration: none;
+}
+
+.story {
+    max-width: 850px;
+    margin-inline: auto;
+    padding: 100px 24px;
+}
+
+.story h2 {
+    font-size: clamp(28px, 4vw, 48px);
+}
+
+.story p {
+    color: #b5b5b5;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
 .biography__cv a {
     display: inline-flex;
     align-items: center;
