@@ -358,78 +358,72 @@ body {
     letter-spacing: -0.04em;
 }
 
-.experience__cards {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-}
-
-.experience__card {
-    padding: 28px;
-    background: #101010;
-    border: 1px solid rgb(255 255 255 / 12%);
-    border-radius: 16px;
-}
-
-.experience__card h3 {
-    margin: 0 0 24px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #b5b5b5;
-}
-
-.experience__number {
-    margin: 0;
-    font-size: clamp(52px, 6vw, 80px);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.05em;
-}
-
-.experience__note {
-    margin: 16px 0 0;
-    color: #b5b5b5;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-.experience__languages {
-    margin: 0;
-}
-
-.experience__languages > div {
+/* Daftar vertikal: setiap entri hanya memiliki judul dan deskripsi. */
+.experience__list {
+    max-width: 1200px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 8px 16px;
-    padding-block: 10px;
-    border-bottom: 1px solid rgb(255 255 255 / 8%);
-    font-size: 14px;
+    flex-direction: column;
+    gap: 36px; /* Jarak antarpengalaman. */
 }
 
-.experience__languages > div:first-child {
-    padding-top: 0;
+.experience__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(20px, 4vw, 60px);
 }
 
-.experience__languages > div:last-child {
-    border-bottom: 0;
+.experience__text {
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
-.experience__languages dd {
+.experience__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgb(255 255 255 / 12%);
+}
+
+@media (max-width: 640px) {
+    .experience__item {
+        grid-template-columns: minmax(0, 1fr) minmax(80px, 30%);
+        gap: 16px;
+    }
+
+    .experience__image {
+        border-radius: 8px;
+    }
+}
+
+/* Garis penghubung hanya muncul di sela artikel, bukan setelah artikel terakhir. */
+.experience__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    width: 1px; /* Ketebalan garis. */
+    height: 20px; /* Panjang garis di dalam jarak antarartikel 36px. */
+    background: rgb(255 255 255 / 22%);
+}
+
+.experience__item h3 {
+    margin: 0 0 8px;
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+}
+
+.experience__item p {
     margin: 0;
     color: #b5b5b5;
-}
-
-.experience__placeholder {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-@media (max-width: 760px) {
-    .experience__cards {
-        grid-template-columns: 1fr;
-    }
+    font-size: clamp(15px, 1.3vw, 18px);
+    line-height: 1.75;
 }
 
 .story h2 {
@@ -525,5 +519,6 @@ body {
         animation-iteration-count: 1 !important;
     }
 }
+
 
 
