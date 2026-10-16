@@ -269,12 +269,96 @@
                 <a class="writing__more" href="tulisan/index.html"><span>see more</span></a>
             </div>
         </section>
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="contact__inner">
+                <h2 class="contact__title" id="contact-title">Get in Touch</h2>
+                <p class="contact__intro">Punya ide untuk berkolaborasi atau sekadar ingin menyapa? Mari terhubung.</p>
+                <!-- Ganti tombol Segera hadir dengan tautan profil Anda saat tersedia. -->
+                <div class="contact__grid">                    <article class="contact-card contact-card--tiktok">
+                        <span class="contact-card__platform">TikTok</span>
+                        <h3>Cerita dalam video singkat</h3>
+                        <p>Temukan potongan cerita dan kreativitas saya melalui video singkat.</p>
+                        <button class="contact-card__action" type="button" disabled>Segera hadir</button>
+                    </article>                    <article class="contact-card contact-card--instagram">
+                        <span class="contact-card__platform">Instagram</span>
+                        <h3>Sudut pandang visual</h3>
+                        <p>Ikuti dokumentasi, foto, dan cerita di balik perjalanan saya.</p>
+                        <button class="contact-card__action" type="button" disabled>Segera hadir</button>
+                    </article>                    <article class="contact-card contact-card--youtube">
+                        <span class="contact-card__platform">YouTube</span>
+                        <h3>Cerita yang lebih panjang</h3>
+                        <p>Jelajahi video, gagasan, dan proses kreatif yang saya bagikan.</p>
+                        <button class="contact-card__action" type="button" disabled>Segera hadir</button>
+                    </article>                    <article class="contact-card contact-card--github">
+                        <span class="contact-card__platform">GitHub</span>
+                        <h3>Jelajahi kode saya</h3>
+                        <p>Lihat repositori dan proyek yang saya kerjakan di GitHub.</p>
+                        <a class="contact-card__action" href="https://github.com/myubitanfidz" target="_blank" rel="noopener noreferrer">Visit GitHub ↗</a>
+                    </article>                    <article class="contact-card contact-card--facebook">
+                        <span class="contact-card__platform">Facebook</span>
+                        <h3>Mari berbagi cerita</h3>
+                        <p>Terhubung dan berbagi kabar melalui Facebook.</p>
+                        <button class="contact-card__action" type="button" disabled>Segera hadir</button>
+                    </article>                    <article class="contact-card contact-card--linkedin">
+                        <span class="contact-card__platform">LinkedIn</span>
+                        <h3>Terhubung secara profesional</h3>
+                        <p>Mari bertukar ide, pengalaman, dan peluang kolaborasi.</p>
+                        <button class="contact-card__action" type="button" disabled>Segera hadir</button>
+                    </article>                    <article class="contact-card contact-card--email">
+                        <span class="contact-card__platform">Email</span>
+                        <h3>Mulai percakapan</h3>
+                        <p>Untuk pertanyaan dan kolaborasi: mayyubi496@gmail.com</p>
+                        <a class="contact-card__action" href="mailto:mayyubi496@gmail.com">Email me ↗</a>
+                    </article>
+                </div>
+                <div class="contact__message">
+                    <h3>Message me</h3>
+                    <p>Isi pesan di bawah, lalu lanjutkan pengiriman melalui aplikasi email Anda.</p>
+                    <form class="contact-form" id="contact-form">
+                        <div class="contact-form__row">
+                            <label for="contact-name">Nama<input id="contact-name" name="name" autocomplete="name" maxlength="100" required></label>
+                            <label for="contact-email">Email<input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required></label>
+                        </div>
+                        <label for="contact-message">Pesan<textarea id="contact-message" name="message" rows="6" maxlength="5000" required></textarea></label>
+                        <button class="contact-form__send" type="submit">Lanjut ke email ↗</button>
+                        <p id="contact-status" class="contact-form__status" role="status"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="guestbook" id="guestbook" aria-labelledby="guestbook-title">
+            <div class="guestbook__inner">
+                <h2 class="guestbook__title" id="guestbook-title">Guestbook</h2>
+                <p class="guestbook__intro">Tinggalkan pesan, bagikan pemikiran, atau sekadar menyapa.</p>
+                <p class="guestbook__notice">Versi lokal: pesan hanya tersimpan di browser ini dan belum terlihat oleh pengunjung lain.</p>
+                <div class="guestbook__messages" id="guestbook-messages" aria-label="Daftar pesan"></div>
+                <button class="guestbook__more" id="guestbook-more" type="button" hidden>Muat pesan sebelumnya</button>
+                <div class="guestbook__reply" id="guestbook-reply" hidden>
+                    <p id="guestbook-reply-text"></p>
+                    <button id="guestbook-cancel-reply" type="button">Batalkan balasan</button>
+                </div>
+                <form class="guestbook__form" id="guestbook-form">
+                    <label for="guestbook-name">Nama<input id="guestbook-name" name="name" autocomplete="nickname" maxlength="50" required placeholder="Nama Anda"></label>
+                    <label for="guestbook-message">Pesan<textarea id="guestbook-message" name="message" rows="3" maxlength="500" required placeholder="Tulis pesan Anda…" aria-describedby="guestbook-limit"></textarea></label>
+                    <div class="guestbook__form-footer">
+                        <span id="guestbook-limit">Maksimal 500 karakter</span>
+                        <button class="guestbook__send" type="submit">Kirim pesan ↑</button>
+                    </div>
+                    <p id="guestbook-status" role="status"></p>
+                </form>
+                <noscript>Aktifkan JavaScript untuk menggunakan guestbook lokal.</noscript>
+            </div>
+        </section>
     </main>
     <script src="hero.js" defer></script>
     <script src="typewriter.js" defer></script>
     <script src="github-stats.js" defer></script>
+    <script src="contact.js" defer></script>
+    <script src="guestbook.js" defer></script>
 </body>
 </html>
+
+
 
 
 
