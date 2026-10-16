@@ -9,7 +9,6 @@
         ['Dashboard', home + '#projects'],
         ['Ruang Karya', new URL('ruang-karya.html', root).href],
         ['Kontak', home + '#contact'],
-        ['Guestbook', home + '#guestbook'],
     ];
     const header = document.createElement('header');
     header.className = 'site-header';
@@ -37,4 +36,5 @@
         if (event.key === 'Escape' && header.classList.contains('is-open')) { closeMenu(); toggle.focus(); }
     });
 })();
+
 

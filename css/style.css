@@ -576,34 +576,6 @@ body {
     .contact-card { padding: 24px; }
 }
 
-.guestbook { padding: 80px clamp(24px, 7vw, 112px) 120px; border-top: 1px solid rgb(255 255 255 / 8%); }
-.guestbook__inner { max-width: 900px; margin-inline: auto; }
-.guestbook__title { margin: 0 0 16px; font-size: clamp(30px, 4vw, 48px); font-weight: 800; letter-spacing: -0.04em; }
-.guestbook__intro { color: #ccc; font-size: 18px; line-height: 1.7; }
-.guestbook__notice { padding: 14px 18px; border: 1px solid #353535; border-radius: 8px; color: #aaa; font-size: 13px; line-height: 1.7; }
-.guestbook__messages { display: grid; gap: 24px; margin-block: 32px; }
-.guestbook__empty { color: #999; padding-block: 24px; }
-.guestbook-message { display: flex; align-items: flex-start; gap: 14px; }
-.guestbook-message__avatar { display: grid; place-items: center; flex: 0 0 36px; height: 36px; border-radius: 50%; background: #303030; color: #eee; font-weight: 700; }
-.guestbook-message__content { min-width: 0; }
-.guestbook-message__header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; }
-.guestbook-message__header strong { font-size: 14px; overflow-wrap: anywhere; }
-.guestbook-message time { color: #888; font-size: 12px; }
-.guestbook-message__bubble { width: fit-content; margin: 8px 0 0; padding: 12px 16px; background: #191919; border: 1px solid #303030; border-radius: 4px 18px 18px; color: #ddd; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
-.guestbook-message blockquote { margin: 10px 0 0; padding: 8px 12px; border-left: 2px solid #777; color: #999; font-size: 12px; overflow-wrap: anywhere; }
-.guestbook-message__reply, .guestbook__reply button { border: 0; padding: 8px 0; background: transparent; color: #aaa; font: inherit; font-size: 12px; cursor: pointer; }
-.guestbook__more { padding: 12px 18px; background: #171717; color: #ddd; border: 1px solid #333; border-radius: 8px; font: inherit; cursor: pointer; }
-.guestbook__form { display: grid; gap: 18px; margin-top: 28px; padding-top: 28px; border-top: 1px solid #303030; }
-.guestbook__form label { display: grid; gap: 10px; font-size: 14px; }
-.guestbook__form input, .guestbook__form textarea { width: 100%; padding: 14px; border: 1px solid #383838; border-radius: 8px; background: #111; color: white; font: inherit; line-height: 1.6; }
-.guestbook__form textarea { resize: vertical; }
-.guestbook__form-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
-.guestbook__form-footer > span, #guestbook-status { color: #999; font-size: 13px; line-height: 1.7; }
-.guestbook__send { min-height: 44px; padding: 12px 20px; background: #eee; color: #111; border: 0; border-radius: 8px; font: inherit; font-weight: 700; cursor: pointer; }
-.guestbook__reply { margin-top: 24px; padding: 12px 16px; border-left: 2px solid #aaa; background: #161616; }
-.guestbook__reply p { margin: 0; color: #bbb; font-size: 13px; overflow-wrap: anywhere; }
-.guestbook :is(button, input, textarea):focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
-.guestbook button[hidden], .guestbook div[hidden] { display: none; }
 
 .story h2 {
     font-size: clamp(28px, 4vw, 48px);
@@ -698,6 +670,7 @@ body {
         animation-iteration-count: 1 !important;
     }
 }
+
 
 
 
