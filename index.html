@@ -125,7 +125,34 @@
             <a class="hero__scroll" href="#about">Scroll to explore <span aria-hidden="true">↓</span></a>
         </section>
 
-        <section class="next-section" id="about" aria-label="Bagian berikutnya"></section>
+        <section class="biography" id="about" aria-labelledby="biography-name">
+            <div class="biography__layout">
+                <div class="biography__text">
+                    <p class="biography__greeting">Hello, I'm</p>
+                    <h2 id="biography-name">Muhammad Ayyubi<br>Tanfidz Ulya</h2>
+                    <!-- Ganti paragraf di bawah dengan biografi Anda. -->
+                    <p class="biography__description">Selamat datang di ruang pribadi saya. Di sini saya berbagi karya, cerita, dan pemikiran dalam perjalanan saya belajar dan berkarya.</p>
+                    <p class="biography__description">Melalui portofolio ini, saya mengajak Anda mengenal lebih dekat hal-hal yang saya kerjakan dan gagasan yang sedang saya jelajahi.</p>
+                    <!-- Ganti PDF di assets/cv dengan CV final Anda. -->
+                    <div class="biography__cv" role="group" aria-label="Curriculum Vitae">
+                        <!-- Bagian kiri membuka PDF di tab baru. -->
+                        <a class="biography__cv-view" href="assets/cv/cv-muhammad-ayyubi-tanfidz-ulya.pdf" target="_blank" rel="noopener noreferrer">
+                            Lihat Curriculum Vitae <span class="sr-only">(PDF, tab baru)</span><span aria-hidden="true">↗</span>
+                        </a>
+                        <!-- Bagian kanan mengunduh PDF yang sama. -->
+                        <a class="biography__cv-download" href="assets/cv/cv-muhammad-ayyubi-tanfidz-ulya.pdf" download aria-label="Unduh Curriculum Vitae (PDF)" title="Unduh CV (PDF)">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <figure class="biography__photo">
+                    <!-- Foto sementara: ganti src dengan lokasi foto Anda. -->
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=750&q=85" alt="Foto contoh sementara, akan diganti dengan potret Muhammad Ayyubi Tanfidz Ulya" loading="lazy" decoding="async" width="750" height="1000">
+                </figure>
+            </div>
+        </section>
     </main>
     <script src="hero.js" defer></script>
     <script src="typewriter.js" defer></script>
