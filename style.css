@@ -101,6 +101,18 @@ body {
     font-weight: inherit;
 }
 
+/* Satu bidang hitam lembut untuk kedua baris nama. */
+.hero__name::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -24px -32px;
+    background: rgb(0 0 0 / 45%);
+    filter: blur(50px);
+    border-radius: 24px;
+    pointer-events: none;
+}
+
 .hero__portrait {
     position: relative;
     z-index: 1;
