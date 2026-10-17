@@ -1,0 +1,46 @@
+.creativity-page { color-scheme: light; --page: #f7f1eb; --ink: #332e40; background: #f7f1eb; color: #332e40; }
+.creativity-page .site-header { background: #f7f1eb; border-color: #d8cfde; }
+.creativity-page .site-footer { background: #e8e0ee; border-color: #d8cfde; }
+.creativity-hero { position: relative; isolation: isolate; min-height: calc(100svh - 72px); display: grid; align-items: center; overflow: hidden; padding: 80px clamp(24px, 7vw, 112px) 100px; background: radial-gradient(ellipse at 85% 80%, #d9c9ef 0, transparent 55%), #f7f1eb; }
+.creativity-hero__content { position: relative; max-width: 1200px; width: 100%; margin: auto; z-index: 1; }
+.creativity-eyebrow { color: #77604f; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; line-height: 1.8; }
+.creativity-hero h1 { margin: 28px 0; font-size: clamp(54px, 10.5vw, 156px); line-height: .98; letter-spacing: -.065em; font-weight: 800; }
+.creativity-hero h1 em { font-family: Georgia, serif; font-weight: 400; color: #805e83; }
+.creativity-hero__intro { max-width: 390px; font-size: clamp(16px, 1.5vw, 21px); color: #615768; line-height: 1.8; }
+.creativity-explore { display: inline-flex; gap: 24px; margin-top: 24px; padding: 14px 0; color: #332e40; border-bottom: 1px solid #b999ad; text-decoration: none; font-size: 14px; }
+.creativity-explore:hover { color: #805e83; }
+.creativity-hero__note { position: absolute; bottom: 28px; right: 7vw; font-size: 11px; letter-spacing: .15em; color: #71617c; text-transform: uppercase; }
+.creativity-orbit { position: absolute; z-index: 0; right: -8%; top: 5%; width: min(65vw, 850px); aspect-ratio: 1; border-radius: 50%; background: var(--creativity-colors); transform: rotate(-25deg); box-shadow: 0 0 100px #bf9ebc30; }
+.creativity-orbit::after { content: ''; position: absolute; inset: 20%; border-radius: 50%; background: #f7f1eb; box-shadow: inset 0 0 50px #d5bcd9; }
+.creativity-orbit span { position: absolute; inset: 10%; border: 1px solid #ffffffb3; border-radius: 50%; }
+.creativity-orbit span:nth-child(2) { inset: -10% 20%; transform: rotate(45deg); }
+.creativity-orbit span:nth-child(3) { inset: 20% -10%; transform: rotate(45deg); }
+.creativity-explorations { max-width: 1440px; padding: 100px clamp(24px, 7vw, 112px); margin: auto; }
+.creativity-explorations h2 { font-size: clamp(30px, 4vw, 56px); font-weight: 600; letter-spacing: -.04em; line-height: 1.15; }
+.creativity-paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 48px 0; }
+.creativity-paths article { display: flex; flex-direction: column; min-width: 0; padding: 28px; border-top: 2px solid #b77e65; background: #f6dfd3; }
+.creativity-paths article:nth-child(2) { border-color: #ae7091; background: #f0dce7; }
+.creativity-paths article:nth-child(3) { border-color: #8e82b1; background: #e1dcf2; }
+.creativity-paths article > span:first-child { font-size: 11px; color: #71596f; text-transform: uppercase; letter-spacing: .08em; }
+.creativity-paths h3 { font-size: clamp(22px, 2.2vw, 30px); letter-spacing: -.04em; overflow-wrap: anywhere; }
+.creativity-paths p { color: #615568; font-size: 14px; line-height: 1.8; margin: 0 0 28px; }
+.creativity-paths a, .creativity-coming { margin-top: auto; font-size: 12px; line-height: 1.7; color: #6b4264; }
+.creativity-page a:focus-visible { outline: 2px solid #805e83; outline-offset: 6px; }
+@media (max-width: 760px) {
+    .creativity-paths { grid-template-columns: 1fr; }
+    .creativity-orbit { width: 90vw; right: -40%; top: 15%; opacity: .7; }
+    .creativity-hero h1 { font-size: clamp(48px, 13vw, 90px); }
+}
+
+/* Navbar dan footer mengikuti palet pastel khusus halaman ini. */
+.creativity-page .site-nav__brand { color: #332e40; }
+.creativity-page .site-nav__brand span { color: #805e83; }
+.creativity-page .site-nav__links a,
+.creativity-page .site-footer,
+.creativity-page .site-footer__links a { color: #615568; }
+.creativity-page .site-nav__links a:hover,
+.creativity-page .site-footer a:hover { color: #332e40; }
+.creativity-page .site-nav__toggle { background: #eee4f2; border-color: #bcb0c7; color: #332e40; }
+.creativity-page .site-footer__bottom { border-color: #cfc3d6; }
+.creativity-page .site-header :is(a, button):focus-visible,
+.creativity-page .site-footer a:focus-visible { outline-color: #805e83; }

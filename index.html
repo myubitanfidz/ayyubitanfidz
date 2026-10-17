@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/components/layout.css">
     <script src="js/components/navbar.js" defer></script>
     <script src="js/components/footer.js" defer></script>
+    <link rel="stylesheet" href="css/creativity-transition.css">
+    <script src="js/creativity-transition.js"></script>
 </head>
 <body>
     <main>
@@ -160,6 +162,9 @@
             </div>
         </section>
         <!-- Edit jumlah proyek, bahasa, dan pengalaman pada section ini. -->
+        <div class="creativity-portal">
+            <a class="creativity-portal__link" href="define-creativity.html" data-creativity-transition>Define Creativity <span aria-hidden="true">↗</span></a>
+        </div>
         <section class="experience" id="experience" aria-labelledby="experience-title">
             <div class="experience__inner">
                 <h2 class="experience__title" id="experience-title">My Experience</h2>
@@ -218,25 +223,21 @@
 
                 <h3 class="projects__subtitle">project</h3>
                 <!-- Satu article = satu proyek. Duplikasikan untuk menambah proyek. -->
-                <div class="projects__grid">                    <article class="project-card">
+                <div class="projects__grid projects__grid--preview">
+<article class="project-card">
                         <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 1" width="960" height="540" loading="lazy" decoding="async">
                         <h4>Nama proyek 1</h4>
-                    </article>                    <article class="project-card">
+                    </article>
+<article class="project-card">
                         <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 2" width="960" height="540" loading="lazy" decoding="async">
                         <h4>Nama proyek 2</h4>
-                    </article>                    <article class="project-card">
+                    </article>
+<article class="project-card">
                         <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 3" width="960" height="540" loading="lazy" decoding="async">
                         <h4>Nama proyek 3</h4>
-                    </article>                    <article class="project-card">
-                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 4" width="960" height="540" loading="lazy" decoding="async">
-                        <h4>Nama proyek 4</h4>
-                    </article>                    <article class="project-card">
-                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 5" width="960" height="540" loading="lazy" decoding="async">
-                        <h4>Nama proyek 5</h4>
-                    </article>                    <article class="project-card">
-                        <img src="assets/images/project-placeholder.svg" alt="Placeholder preview proyek 6" width="960" height="540" loading="lazy" decoding="async">
-                        <h4>Nama proyek 6</h4>
-                    </article>                </div>
+                    </article>
+</div>
+                <a class="writing__more" href="projects.html" aria-label="Lihat semua proyek"><span>see more</span></a>
             </div>
         </section>
         <section class="writing" id="writing" aria-labelledby="writing-title">
@@ -336,6 +337,8 @@
     <script src="js/contact.js" defer></script>
 </body>
 </html>
+
+
 
 
 

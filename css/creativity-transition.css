@@ -1,0 +1,28 @@
+:root {
+    /* Mengubah gradasi ini mengubah warna transisi dan halaman tujuan. */
+    --creativity-colors: radial-gradient(ellipse at 15% 20%, #ffe2ad 0%, transparent 55%), radial-gradient(ellipse at 85% 25%, #efbfd8 0%, transparent 55%), radial-gradient(ellipse at 70% 90%, #c8c4f3 0%, transparent 60%), #f6c7b5;
+}
+
+.creativity-portal { display: flex; justify-content: center; padding: 24px 24px 88px; }
+.creativity-portal__link { position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: 28px; min-height: 60px; padding: 18px 30px; overflow: hidden; border: 1px solid #777; border-radius: 999px; background: #151515; color: #f4f4f4; font-size: 15px; font-weight: 600; text-decoration: none; }
+.creativity-portal__link::before { content: ''; position: absolute; z-index: -1; inset: 0; background: var(--creativity-colors); opacity: 0; transition: opacity .3s ease; }
+.creativity-portal__link:hover::before { opacity: .35; }
+.creativity-portal__link:focus-visible { outline: 2px solid white; outline-offset: 6px; }
+.creativity-leaving { cursor: progress; }
+.creativity-leaving body { overflow: hidden; }
+.creativity-leaving body > :is(main, header, footer) { pointer-events: none; animation: creativity-sink .95s ease both; }
+.creativity-leaving main { transform-origin: var(--sink-origin, center); }
+.creativity-surface { position: fixed; inset: 0; z-index: 10000; background: var(--creativity-colors); pointer-events: all; }
+/* Lapisan warna muncul sebelum halaman tujuan pertama kali digambar. */
+.creativity-entering::after { content: ''; position: fixed; z-index: 10000; inset: 0; background: var(--creativity-colors); pointer-events: none; }
+.creativity-entering body { overflow: hidden; }
+.creativity-entering body > :is(main, header, footer) { opacity: 0; }
+.creativity-entering.creativity-arrived::after { animation: creativity-unveil 1s ease both; }
+.creativity-entering.creativity-arrived body > :is(main, header, footer) { animation: creativity-rise 1.1s .12s cubic-bezier(.16,1,.3,1) both; }
+@keyframes creativity-sink { to { opacity: 0; transform: translateY(35px) scale(.94); filter: blur(6px); } }
+@keyframes creativity-rise { from { opacity: 0; transform: translateY(45px) scale(.96); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes creativity-unveil { from { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+    .creativity-portal__link::before { transition: none; }
+}
+

@@ -503,6 +503,7 @@ body {
 .projects__featured figcaption { margin-top: 16px; font-size: 20px; font-weight: 600; }
 .projects__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
 .project-card { min-width: 0; }
+.projects__grid--preview { overflow-x: auto; padding-bottom: 12px; }
 .project-card h4 { margin: 14px 0 0; font-size: 17px; font-weight: 600; overflow-wrap: anywhere; }
 
 @media (max-width: 900px) {
@@ -511,6 +512,11 @@ body {
 
 @media (max-width: 640px) {
     .projects__grid { grid-template-columns: 1fr; }
+}
+
+/* Preview beranda tetap satu baris; pada layar kecil dapat digeser. */
+@media (max-width: 900px) {
+    .projects__grid--preview { grid-template-columns: repeat(3, minmax(240px, 1fr)); }
 }
 
 .writing {
